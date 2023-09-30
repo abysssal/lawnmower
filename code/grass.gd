@@ -8,7 +8,6 @@ var isCuttable : bool = false
 func cut(cashMin:int, cashMax:int):
 	scaleFactor -= 0.1
 	var cashCount = get_parent().get_node("CashAmount")
-	particles.scale = Vector2(scaleFactor * 100, scaleFactor * 100)
 	particles.emitting = true
 	if cashCount.get_class() == "Timer":
 		cashCount.wait_time += randi_range(cashMin, cashMax)

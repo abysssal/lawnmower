@@ -32,6 +32,8 @@ tangential_accel_max = 17.89
 damping_max = 100.0
 angle_min = -720.0
 angle_max = 1283.0
+scale_min = 0.5
+scale_max = 2.0
 
 [node name="Grass" type="StaticBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -55,7 +57,7 @@ material = SubResource("CanvasItemMaterial_8vv3x")
 emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_il51j")
-lifetime = 1.35
+lifetime = 2.0
 one_shot = true
 preprocess = 163.64
 explosiveness = 0.34
