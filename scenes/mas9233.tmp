@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bremj0rm8m70o"]
+
+[ext_resource type="Script" path="res://code/master.gd" id="1_cr762"]
+[ext_resource type="Script" path="res://code/camera.gd" id="1_oe5uo"]
+[ext_resource type="Script" path="res://code/grasstimer.gd" id="4_601ox"]
+[ext_resource type="PackedScene" uid="uid://d0sa3j5cpdf81" path="res://scenes/grass.tscn" id="5_37phu"]
+[ext_resource type="FontFile" uid="uid://cwpliirv887ea" path="res://art/fonts/pixelfj8pt1.normal.ttf" id="6_5ms88"]
+[ext_resource type="PackedScene" uid="uid://oabvbutauyc6" path="res://scenes/scissors.tscn" id="6_6owuw"]
+
+[node name="Master" type="Node2D"]
+script = ExtResource("1_cr762")
+
+[node name="Camera" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("1_oe5uo")
+
+[node name="Control" type="Control" parent="Camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -96.0
+offset_top = -300.0
+offset_right = -96.0
+offset_bottom = -200.0
+
+[node name="Panel" type="Panel" parent="Camera/Control"]
+layout_mode = 2
+offset_left = 442.0
+offset_right = 642.0
+offset_bottom = 100.0
+
+[node name="Cash" type="Label" parent="Camera/Control/Panel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("6_5ms88")
+theme_override_font_sizes/font_size = 24
+text = "$25"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GrassTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+script = ExtResource("4_601ox")
+
+[node name="Grass1" parent="." instance=ExtResource("5_37phu")]
+position = Vector2(-484, 256)
+
+[node name="CashAmount" type="Timer" parent="."]
+wait_time = 25.0
+
+[node name="Scissors" parent="." instance=ExtResource("6_6owuw")]
+position = Vector2(574, 319)
+
+[node name="Grass2" parent="." instance=ExtResource("5_37phu")]
+position = Vector2(-226, -213)
+
+[connection signal="timeout" from="GrassTimer" to="." method="timer_reaches_zero"]

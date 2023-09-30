@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://oabvbutauyc6"]
+
+[ext_resource type="Script" path="res://code/scissors.gd" id="1_8j7kr"]
+[ext_resource type="Texture2D" uid="uid://bs1paawaxsk6x" path="res://art/scissors/scissors2.png" id="2_l32s7"]
+[ext_resource type="Texture2D" uid="uid://cvvtd54g1tf1h" path="res://art/scissors/scissors1.png" id="3_37a5l"]
+[ext_resource type="Texture2D" uid="uid://b17tgak3w1meu" path="res://art/scissors/scissors0.png" id="4_y782j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xow6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7r1t"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p11du"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l32s7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_37a5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y782j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_37a5l")
+}],
+"loop": true,
+"name": &"cut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l32s7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Scissors" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_xow6h")
+gravity_scale = 0.0
+linear_damp = 5.101
+script = ExtResource("1_8j7kr")
+
+[node name="Cutbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y7r1t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p11du")
+animation = &"cut"
+frame_progress = 0.84047
