@@ -1,6 +1,2 @@
 res://scenes/master.tscn
-res://scenes/scissors.tscn
-res://scenes/grass.tscn
-res://code/scissors.gd
-res://code/master.gd
-res://code/grass.gd
+res://bankpig.gd

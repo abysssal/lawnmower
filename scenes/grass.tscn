@@ -63,6 +63,8 @@ preprocess = 163.64
 explosiveness = 0.34
 randomness = 1.0
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

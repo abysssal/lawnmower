@@ -6,6 +6,7 @@ var targetNode
 var needsGrass : bool = true
 var master
 var speed = 100
+var canCut : bool = true
 
 func _ready():
 	master = get_parent()
